@@ -2,8 +2,8 @@ FROM nginx:stable-alpine
 
 WORKDIR /var/www/html
 
-RUN apk update;
-RUN apk upgrade;
+RUN apk --no-cache update;
+RUN apk --no-cache upgrade;
 
 RUN apk add --no-cache bash;
 RUN apk add --no-cache nano;
