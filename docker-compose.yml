@@ -57,6 +57,8 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./php/default.ini:/usr/local/etc/php/custom.d/default.ini
+    depends_on:
+      - mysql
     environment:
       PHP_INI_SCAN_DIR: "/usr/local/etc/php/custom.d:/usr/local/etc/php/conf.d"
     networks:
