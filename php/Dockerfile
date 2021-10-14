@@ -2,11 +2,14 @@ FROM php:8.0-fpm-alpine
 
 WORKDIR /var/www/html
 
-RUN apk update;
-RUN apk upgrade;
+RUN apk --no-cache update;
+RUN apk --no-cache upgrade;
 
 RUN apk add --no-cache bash;
 RUN apk add --no-cache nano;
+
+RUN docker-php-ext-install pdo;
+RUN docker-php-ext-install pdo_mysql;
 
 RUN echo "Europe/Vienna" > /etc/timezone && \
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
